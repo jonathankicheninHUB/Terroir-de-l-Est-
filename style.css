@@ -1,5 +1,6 @@
 /* =========================================
-   STYLE GLOBAL - TERROIR DE L'EST (CORRIGÉ)
+   STYLE GLOBAL - TERROIR DE L'EST (FINAL V2)
+   Avec Moteur de Recherche & Filtres
    ========================================= */
 
 /* 1. PALETTE DE COULEURS & VARIABLES */
@@ -68,23 +69,23 @@ ul { list-style: none; }
 }
 .btn-pro-nav:hover { background-color: var(--vert-imperial); color: white !important; }
 
-/* 4. HERO IMAGE (PURE - SANS TEXTE) */
+/* 4. HERO IMAGE (PURE) */
 .hero-image-container {
     width: 100%;
-    height: auto; /* S'adapte à l'image */
+    height: auto;
     overflow: hidden;
-    background-color: #000; /* Fond noir si image charge pas */
+    background-color: #000;
 }
 
 .hero-image-container img {
     width: 100%;
     height: auto;
     display: block;
-    max-height: 85vh; /* Limite la hauteur sur grand écran */
-    object-fit: cover; /* Assure que ça remplit bien */
+    max-height: 85vh;
+    object-fit: cover;
 }
 
-/* 5. BARRE D'ACTION (NOUVEAU - SOUS LA PHOTO) */
+/* 5. BARRE D'ACTION (SOUS LA PHOTO) */
 .action-bar {
     background-color: var(--vert-imperial);
     color: white;
@@ -92,81 +93,78 @@ ul { list-style: none; }
     text-align: center;
 }
 
-.action-title {
-    font-size: 2rem;
-    color: var(--or-terre);
-    margin-bottom: 10px;
-}
-.action-subtitle {
-    font-size: 1.1rem;
-    margin-bottom: 30px;
-    font-weight: 300;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
+.action-title { font-size: 2rem; color: var(--or-terre); margin-bottom: 10px; }
+.action-subtitle { font-size: 1.1rem; margin-bottom: 30px; font-weight: 300; max-width: 700px; margin-left: auto; margin-right: auto; }
 
-.hero-buttons {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
+.hero-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
 
 .btn-gold {
     background: linear-gradient(135deg, var(--or-terre), #cfa038);
-    color: white;
-    padding: 15px 40px;
-    border-radius: 50px;
-    font-weight: 700;
-    text-transform: uppercase;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-    border: none;
+    color: white; padding: 15px 40px; border-radius: 50px; font-weight: 700; text-transform: uppercase;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2); border: none; cursor: pointer;
 }
 .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4); }
 
 .btn-outline {
-    background: transparent;
-    border: 2px solid var(--or-terre);
-    color: var(--or-terre);
-    padding: 15px 40px;
-    border-radius: 50px;
-    font-weight: 700;
-    text-transform: uppercase;
+    background: transparent; border: 2px solid var(--or-terre); color: var(--or-terre);
+    padding: 15px 40px; border-radius: 50px; font-weight: 700; text-transform: uppercase; cursor: pointer;
 }
 .btn-outline:hover { background: var(--or-terre); color: var(--vert-imperial); }
 
 
-/* 6. PREUVE SOCIALE (Visages) */
+/* 6. PREUVE SOCIALE */
 .social-proof-bar {
-    background: var(--blanc-pur);
-    padding: 40px 20px;
-    text-align: center;
-    border-bottom: 1px solid #eee;
+    background: var(--blanc-pur); padding: 40px 20px; text-align: center; border-bottom: 1px solid #eee;
 }
-
 .producers-list { display: flex; justify-content: center; gap: 50px; flex-wrap: wrap; margin-top: 20px;}
 .producer-item { display: flex; align-items: center; gap: 15px; text-align: left; }
 .producer-face { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 3px solid var(--or-terre); }
 
-/* 7. GRILLE PRODUITS */
+/* 7. SECTION MARCHÉ AVEC FILTRES (NOUVEAU) */
 .products-section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
-.section-header { text-align: center; margin-bottom: 50px; }
+.section-header { text-align: center; margin-bottom: 30px; }
 
+/* Styles de la barre de recherche et filtres */
+.market-controls {
+    max-width: 800px; margin: 0 auto 50px auto;
+    display: flex; flex-direction: column; align-items: center; gap: 20px;
+}
+
+.search-box {
+    position: relative; width: 100%; max-width: 500px;
+}
+.search-box input {
+    width: 100%; padding: 15px 20px 15px 50px;
+    border-radius: 50px; border: 2px solid #eee; font-family: 'Montserrat', sans-serif; font-size: 1rem;
+    transition: all 0.3s;
+}
+.search-box input:focus { border-color: var(--or-terre); outline: none; box-shadow: 0 0 15px rgba(212, 175, 55, 0.1); }
+.search-box i {
+    position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: #ccc;
+}
+
+.filter-buttons { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.filter-btn {
+    background: white; border: 1px solid #ddd; padding: 8px 20px; border-radius: 30px;
+    cursor: pointer; font-weight: 600; color: var(--gris-texte); transition: all 0.3s;
+}
+.filter-btn:hover, .filter-btn.active {
+    background-color: var(--vert-imperial); color: white; border-color: var(--vert-imperial);
+}
+
+/* Grille produits */
 .products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px;
 }
 
 .product-card {
-    background: var(--blanc-pur);
-    border-radius: 12px;
-    overflow: hidden;
-    transition: transform 0.3s;
-    box-shadow: var(--ombre-douce);
-    border: 1px solid #eee;
+    background: var(--blanc-pur); border-radius: 12px; overflow: hidden;
+    transition: transform 0.3s, opacity 0.3s;
+    box-shadow: var(--ombre-douce); border: 1px solid #eee;
 }
+/* Classe pour cacher les produits filtrés */
+.product-card.hidden { display: none; }
+
 .product-card:hover { transform: translateY(-10px); }
 
 .card-badge {
@@ -187,5 +185,5 @@ footer a { color: #ccc; margin: 0 10px; }
 
 @media (max-width: 768px) {
     .nav-links { display: none; } 
-    .hero-image-container img { height: 300px; } /* Moins haut sur mobile */
+    .hero-image-container img { height: 300px; }
 }
