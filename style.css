@@ -1,155 +1,312 @@
 /* =========================================
-   STYLE GLOBAL - TERROIR DE L'EST
-   Ambiance : Éclatante, Nature, Premium
+   STYLE GLOBAL - TERROIR DE L'EST (FINAL)
    ========================================= */
 
 /* 1. PALETTE DE COULEURS & VARIABLES */
 :root {
-    /* Couleurs Principales */
-    --vert-imperial: #1a3c26;  /* Vert profond, sérieux, nature luxuriante */
-    --vert-vif: #2e8b57;       /* Vert feuille pour les boutons d'action */
-    --or-terre: #d4af37;       /* Or métallique pour le premium */
-    --rouge-volcan: #c0392b;   /* Touche chaude pour les appels à l'action urgents */
-    
-    /* Couleurs de Fond */
-    --blanc-papier: #fdfbf7;   /* Blanc cassé très léger (chaleureux) */
+    /* Couleurs de la Marque */
+    --vert-imperial: #1a3c26;  /* Vert profond, luxe et nature */
+    --or-terre: #d4af37;       /* Or métallique, premium */
+    --or-clair: #f3e5ab;       /* Or très pâle pour les fonds */
+    --blanc-casse: #f9f7f2;    /* Fond général, doux pour les yeux */
     --blanc-pur: #ffffff;
+    --gris-texte: #2c3e50;
     
-    /* Texte */
-    --gris-sombre: #2c3e50;
-    --gris-clair: #ecf0f1;
+    /* Ombres & Effets */
+    --ombre-douce: 0 10px 30px rgba(0,0,0,0.08);
+    --ombre-hero: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 /* 2. RESET & BASES */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    font-family: 'Montserrat', sans-serif; /* Texte courant moderne */
-    background-color: var(--blanc-papier);
-    color: var(--gris-sombre);
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--blanc-casse);
+    color: var(--gris-texte);
     line-height: 1.6;
+    overflow-x: hidden; /* Empêche le défilement horizontal */
 }
 
-/* Titres en "Playfair Display" pour le côté Luxe/Terroir */
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4 {
     font-family: 'Playfair Display', serif;
     color: var(--vert-imperial);
     font-weight: 700;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-    transition: all 0.3s ease;
-}
+a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+ul { list-style: none; }
 
-ul {
-    list-style: none;
-}
-
-/* 3. BOUTONS (Le côté "Donner envie de cliquer") */
-.btn {
-    display: inline-block;
-    padding: 12px 30px;
-    border-radius: 50px; /* Arrondi moderne */
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Ombre douce */
-}
-
-/* Bouton Principal (Or) */
-.btn-or {
-    background: linear-gradient(135deg, var(--or-terre), #eac159);
-    color: var(--vert-imperial);
-    border: none;
-}
-
-.btn-or:hover {
-    transform: translateY(-3px); /* Le bouton monte un peu */
-    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4); /* L'ombre brille */
-    color: white;
-}
-
-/* Bouton Secondaire (Vert) */
-.btn-vert {
+/* 3. TOP BAR (Fixe en haut) */
+.top-bar {
     background-color: var(--vert-imperial);
-    color: white;
-    border: 2px solid var(--vert-imperial);
+    color: var(--or-terre);
+    text-align: center;
+    padding: 8px 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
-.btn-vert:hover {
-    background-color: transparent;
-    color: var(--vert-imperial);
-    transform: translateY(-3px);
-}
-
-/* 4. CARTES PRODUITS (Effet Flottant) */
-.product-card, .cat-card, .rayon-card {
+/* 4. HEADER (Navigation) */
+.main-header {
     background: var(--blanc-pur);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Ombre très légère */
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Effet rebond */
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky; /* Reste collé en haut si on scrolle */
+    top: 0;
+    z-index: 1000;
 }
 
-.product-card:hover, .cat-card:hover, .rayon-card:hover {
-    transform: translateY(-10px); /* Monte franchement au survol */
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+.brand-logo h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    letter-spacing: -1px;
 }
 
-/* Images dans les cartes */
-.card-img img, .product-card img, .cat-card img {
-    transition: transform 0.8s ease;
+.brand-logo span {
+    font-size: 0.7rem;
+    color: var(--or-terre);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: block;
+    font-weight: 600;
 }
 
-.product-card:hover img, .cat-card:hover img {
-    transform: scale(1.1); /* Zoom lent sur l'image */
-}
+.nav-links { display: flex; gap: 30px; }
+.nav-links a { font-weight: 600; font-size: 0.9rem; text-transform: uppercase; position: relative; }
 
-/* 5. FORMULAIRES (Espace Producteur) */
-input, select, textarea {
-    border: 2px solid #eee;
-    background-color: var(--blanc-pur);
-    transition: border-color 0.3s;
-}
-
-input:focus, select:focus, textarea:focus {
-    outline: none;
-    border-color: var(--or-terre); /* La bordure devient dorée quand on écrit */
-    box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
-}
-
-/* 6. ELEMENTS DE NAVIGATION */
-nav a {
-    position: relative;
-}
-
-nav a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color: var(--or-terre);
+/* Petit effet de soulignement doré au survol */
+.nav-links a::after {
+    content: ''; position: absolute; width: 0; height: 2px;
+    bottom: -5px; left: 0; background-color: var(--or-terre);
     transition: width 0.3s;
 }
+.nav-links a:hover::after { width: 100%; }
 
-nav a:hover::after {
-    width: 100%; /* Soulignement doré qui s'anime */
+.btn-pro-nav {
+    border: 1px solid var(--vert-imperial);
+    padding: 8px 20px;
+    border-radius: 30px;
+    color: var(--vert-imperial) !important;
+}
+.btn-pro-nav:hover {
+    background-color: var(--vert-imperial);
+    color: white !important;
 }
 
-/* 7. RESPONSIVE (Mobile) */
+/* 5. HERO SECTION (L'Image Principale) */
+.hero-section {
+    position: relative;
+    height: 85vh; /* Prend 85% de la hauteur de l'écran */
+    background-image: url('accueil-terroir.jpg'); /* VOTRE PHOTO */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Filtre sombre pour que le texte soit lisible sur la photo */
+.hero-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(26, 60, 38, 0.3), rgba(26, 60, 38, 0.6));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+    padding: 0 20px;
+    color: white;
+}
+
+.hero-title {
+    font-size: 4rem;
+    margin-bottom: 10px;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    line-height: 1.1;
+}
+
+.hero-title em {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--or-terre);
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    font-weight: 300;
+    color: #eee;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Bouton OR (Acheter) */
+.btn-gold {
+    background: linear-gradient(135deg, var(--or-terre), #cfa038);
+    color: white;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+    border: none;
+}
+.btn-gold:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(212, 175, 55, 0.6); }
+
+/* Bouton VERT (Vendre) */
+.btn-outline {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.btn-outline:hover { background: white; color: var(--vert-imperial); }
+
+/* 6. BARRE DE PREUVE SOCIALE (Producteurs) */
+.social-proof-bar {
+    background: var(--blanc-pur);
+    padding: 40px 20px;
+    margin-top: -50px; /* Chevauche le Hero vers le haut */
+    position: relative;
+    z-index: 20;
+    border-radius: 8px 8px 0 0;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.proof-title {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    color: #999;
+    margin-bottom: 30px;
+}
+
+.producers-list {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.producer-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-align: left;
+}
+
+.producer-face {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--or-terre);
+}
+
+.producer-info h4 { font-size: 1.1rem; margin-bottom: 2px; }
+.producer-info p { font-size: 0.8rem; color: #777; }
+
+/* 7. GRILLE PRODUITS */
+.products-section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+.section-header { text-align: center; margin-bottom: 60px; }
+.section-header h2 { font-size: 2.5rem; margin-bottom: 10px; }
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background: var(--blanc-pur);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    box-shadow: var(--ombre-douce);
+    position: relative;
+    border: 1px solid #eee;
+}
+
+.product-card:hover { transform: translateY(-10px); }
+
+.card-badge {
+    position: absolute;
+    top: 15px; right: 15px;
+    background-color: var(--or-terre);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    z-index: 2;
+}
+
+.card-image-wrapper {
+    height: 250px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fcfcfc;
+}
+
+.card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+.product-card:hover img { transform: scale(1.1); }
+
+.card-details { padding: 25px; text-align: center; }
+.card-price { font-weight: 700; color: var(--vert-imperial); font-size: 1.2rem; margin-top: 10px; display: block;}
+
+/* 8. MANIFESTO (Histoire) */
+.manifesto-section {
+    background-color: var(--vert-imperial);
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.manifesto-content { max-width: 800px; margin: 0 auto; position: relative; z-index: 2; }
+.manifesto-title { color: var(--or-terre); font-size: 3rem; margin-bottom: 30px; }
+.manifesto-text { font-size: 1.2rem; line-height: 1.8; opacity: 0.9; }
+
+/* 9. FOOTER */
+footer {
+    background-color: #111;
+    color: #888;
+    padding: 60px 20px;
+    text-align: center;
+}
+footer a { color: #ccc; margin: 0 10px; }
+footer a:hover { color: var(--or-terre); }
+
+/* MOBILE */
 @media (max-width: 768px) {
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.8rem; }
-    .btn { width: 100%; text-align: center; margin-bottom: 10px; }
+    .hero-title { font-size: 2.5rem; }
+    .producers-list { flex-direction: column; gap: 20px; }
+    .nav-links { display: none; } /* Pour simplifier ici, idéalement menu burger */
 }
