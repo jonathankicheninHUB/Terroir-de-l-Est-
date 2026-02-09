@@ -3,158 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LE COMPTOIR DE L'EST - Distribution Agricole Réunion</title>
+    <title>TERROIR DE L'EST - Le Meilleur de la Réunion</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root { 
-            --vert-comptoir: #1e2b25; /* Vert très sombre, sérieux */
-            --or-vieux: #c5a065;      /* Doré patiné */
-            --blanc-cassé: #f4f4f0;
+            --vert-terroir: #2c3e50; /* Bleu-Gris profond, très classe */
+            --or-terre: #c0a062;     /* Doré mat */
+            --blanc-papier: #f9f7f2;
         }
         
-        body { background-color: var(--blanc-cassé); }
+        body { background-color: var(--blanc-papier); color: #333; }
 
         /* BANNIÈRE TOP */
         .top-bar { 
-            background-color: var(--or-vieux); color: var(--vert-comptoir); 
-            text-align: center; padding: 10px; font-weight: 700; letter-spacing: 1px; font-size: 0.8rem;
+            background-color: var(--vert-terroir); color: white; 
+            text-align: center; padding: 10px; font-weight: 500; letter-spacing: 1px; font-size: 0.8rem;
         }
 
         /* HEADER DISTRIBUTEUR */
-        .comptoir-header {
+        .terroir-header {
             background-color: white; padding: 25px 40px; 
             display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 3px solid var(--vert-comptoir);
+            border-bottom: 1px solid #e5e5e5;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
-        .comptoir-brand h1 { 
-            font-family: 'Playfair Display', serif; font-size: 2rem; 
-            color: var(--vert-comptoir); margin: 0; letter-spacing: -1px; text-transform: uppercase;
+        .terroir-brand h1 { 
+            font-family: 'Playfair Display', serif; font-size: 1.8rem; 
+            color: var(--vert-terroir); margin: 0; letter-spacing: 1px; text-transform: uppercase; font-weight: 700;
         }
-        .comptoir-brand span { 
-            font-size: 0.75rem; color: #666; letter-spacing: 2px; text-transform: uppercase; 
+        .terroir-brand span { 
+            font-size: 0.7rem; color: var(--or-terre); letter-spacing: 2px; text-transform: uppercase; display: block; margin-top: 5px; font-weight: 600;
         }
 
         /* NAVIGATION */
-        .comptoir-nav ul { display: flex; gap: 30px; list-style: none; }
-        .comptoir-nav a { 
-            text-decoration: none; color: var(--vert-comptoir); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; 
+        .terroir-nav ul { display: flex; gap: 30px; list-style: none; }
+        .terroir-nav a { 
+            text-decoration: none; color: #555; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; 
             transition: color 0.3s;
         }
-        .comptoir-nav a:hover { color: var(--or-vieux); }
+        .terroir-nav a:hover { color: var(--or-terre); }
+        .btn-nav-highlight {
+            border: 2px solid var(--vert-terroir); padding: 8px 20px; border-radius: 30px; color: var(--vert-terroir) !important;
+        }
+        .btn-nav-highlight:hover { background-color: var(--vert-terroir); color: white !important; }
 
         /* HERO SECTION */
-        .comptoir-hero {
-            height: 500px; 
-            background-image: url('fond-accueil.jpg'); /* On utilise votre image existante */
+        .terroir-hero {
+            height: 550px; 
+            background-image: url('fond-accueil.jpg'); /* Votre image de fond existante */
             background-size: cover; background-position: center;
             position: relative; display: flex; align-items: center; justify-content: center; text-align: center;
         }
         .hero-filter {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(30, 43, 37, 0.7), rgba(30, 43, 37, 0.5));
+            background: rgba(0,0,0,0.3); /* Filtre léger pour lire le texte */
         }
-        .hero-txt { position: relative; z-index: 2; color: white; max-width: 800px; padding: 20px; }
-        .hero-txt h2 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 20px; }
-        .hero-txt p { font-size: 1.2rem; font-weight: 300; margin-bottom: 30px; color: #ddd; }
-        .btn-comptoir {
-            background-color: var(--or-vieux); color: var(--vert-comptoir); padding: 15px 40px; 
+        .hero-txt { position: relative; z-index: 2; color: white; max-width: 800px; padding: 20px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+        .hero-txt h2 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 20px; line-height: 1.2; }
+        .hero-txt p { font-size: 1.2rem; font-weight: 400; margin-bottom: 40px; color: #f0f0f0; }
+        .btn-terroir {
+            background-color: white; color: var(--vert-terroir); padding: 15px 40px; 
             text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
-            transition: background 0.3s;
+            transition: all 0.3s; border-radius: 2px;
         }
-        .btn-comptoir:hover { background-color: white; }
+        .btn-terroir:hover { background-color: var(--or-terre); color: white; }
 
         /* GRID RAYONS */
         .rayons-section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
         .section-header { text-align: center; margin-bottom: 60px; }
-        .section-header h3 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--vert-comptoir); }
-        .sep-line { width: 60px; height: 3px; background-color: var(--or-vieux); margin: 15px auto; }
+        .section-header h3 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--vert-terroir); margin-bottom: 10px; }
+        .section-header p { color: #888; font-style: italic; }
 
         .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         
         .product-card {
-            background: white; border: 1px solid #e0e0e0; transition: transform 0.3s, box-shadow 0.3s;
+            background: white; border-radius: 8px; overflow: hidden; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s;
             text-decoration: none; color: inherit; display: block;
         }
-        .product-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); border-color: var(--or-vieux); }
-        .card-img { height: 250px; overflow: hidden; position: relative; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .card-img { height: 260px; overflow: hidden; position: relative; }
         .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-        .product-card:hover .card-img img { transform: scale(1.1); }
-        .card-body { padding: 25px; text-align: center; }
-        .card-cat { color: var(--or-vieux); font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
-        .card-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin: 10px 0; color: var(--vert-comptoir); }
-
-        /* PRODUCTEUR SPOTLIGHT */
-        .spotlight { background-color: var(--vert-comptoir); color: white; padding: 80px 20px; margin-top: 50px; }
-        .spotlight-container { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 50px; }
-        .spot-img { width: 40%; border: 5px solid rgba(255,255,255,0.1); }
-        .spot-txt { width: 60%; }
-        .spot-label { background-color: var(--or-vieux); color: var(--vert-comptoir); padding: 5px 15px; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; }
+        .product-card:hover .card-img img { transform: scale(1.05); }
         
-        @media (max-width: 768px) { .spotlight-container { flex-direction: column; } .spot-img, .spot-txt { width: 100%; } }
+        .card-body { padding: 25px; text-align: center; position: relative; }
+        /* Petite ligne décorative */
+        .card-body::after { content: ''; display: block; width: 40px; height: 2px; background: var(--or-terre); margin: 15px auto 0; }
+        
+        .card-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin: 5px 0; color: var(--vert-terroir); }
+        .card-desc { font-size: 0.9rem; color: #666; margin-top: 5px; }
 
-        /* FOOTER SIMPLIFIÉ */
-        .comptoir-footer { background-color: #111; color: #888; padding: 40px; text-align: center; font-size: 0.9rem; }
-        .comptoir-footer a { color: #ccc; text-decoration: none; margin: 0 10px; }
+        /* PARTENAIRES */
+        .partners { background-color: white; padding: 80px 20px; border-top: 1px solid #eee; }
+        .partners-container { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 60px; }
+        .partner-img { width: 45%; border-radius: 5px; box-shadow: 20px 20px 0 var(--or-terre); } 
+        .partner-txt { width: 55%; }
+        
+        @media (max-width: 768px) { .partners-container { flex-direction: column; } .partner-img, .partner-txt { width: 100%; } .partner-img { box-shadow: 10px 10px 0 var(--or-terre); } }
+
+        /* FOOTER */
+        .terroir-footer { background-color: var(--vert-terroir); color: #bbb; padding: 50px 20px; text-align: center; font-size: 0.9rem; }
+        .terroir-footer h4 { color: white; font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 20px; }
+        .terroir-footer a { color: #bbb; text-decoration: none; margin: 0 15px; transition: color 0.3s; }
+        .terroir-footer a:hover { color: white; }
     </style>
 </head>
 <body>
 
-    <div class="top-bar">GROSSISTE & DÉTAILLANT • LIVRAISON SUR TOUTE L'ÎLE</div>
+    <div class="top-bar">🌱 LIVRAISON EXPRESS DANS L'EST & NORD • FRAÎCHEUR GARANTIE</div>
 
-    <header class="comptoir-header">
-        <div class="comptoir-brand">
-            <h1>Le Comptoir de l'Est</h1>
-            <span>Coopérative Agricole</span>
+    <header class="terroir-header">
+        <div class="terroir-brand">
+            <h1>Terroir de l'Est</h1>
+            <span>Distribution & Sélection</span>
         </div>
-        <nav class="comptoir-nav">
+        <nav class="terroir-nav">
             <ul>
                 <li><a href="#rayons">Nos Rayons</a></li>
-                <li><a href="#partenaires">Nos Producteurs</a></li>
-                <li><a href="boutique-nadege.html">La Boutique Fleuriste</a></li>
+                <li><a href="#producteurs">Nos Producteurs</a></li>
+                <li><a href="boutique-nadege.html" class="btn-nav-highlight">Espace Nadège & Mélissa</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="comptoir-hero">
+    <section class="terroir-hero">
         <div class="hero-filter"></div>
         <div class="hero-txt">
-            <h2>L'Excellence du Terroir</h2>
-            <p>Nous sélectionnons rigoureusement les meilleurs producteurs de l'Est pour les professionnels et les particuliers.</p>
-            <a href="#rayons" class="btn-comptoir">Accéder au Catalogue</a>
+            <h2>L'Authenticité,<br>Directement du Champ.</h2>
+            <p>Nous connectons les meilleurs producteurs de Bras-Panon et de l'Est<br>aux tables des particuliers et restaurateurs.</p>
+            <a href="#rayons" class="btn-terroir">Découvrir la Sélection</a>
         </div>
     </section>
 
     <section id="rayons" class="rayons-section">
         <div class="section-header">
-            <h3>Nos Univers</h3>
-            <div class="sep-line"></div>
-            <p>Choisissez votre catégorie</p>
+            <h3>Nos Univers Produits</h3>
+            <p>Une gamme courte, locale et de saison.</p>
         </div>
 
         <div class="grid-container">
             
             <a href="fleurs.html" class="product-card">
                 <div class="card-img">
-                    <img src="fleur-tropicale.jpg" alt="Fleurs">
+                    <img src="fleur-tropicale.jpg" alt="Fleurs Tropicales">
                 </div>
                 <div class="card-body">
-                    <span class="card-cat">Horticulture</span>
                     <h4 class="card-title">Fleurs Tropicales</h4>
-                    <p style="font-size: 0.9rem; color: #666;">Bouquets & Tiges</p>
+                    <p class="card-desc">Bouquets, Héliconias & Alpinias</p>
                 </div>
             </a>
 
             <a href="palmiste.html" class="product-card">
                 <div class="card-img">
-                    <img src="palmiste-rouge.jpg" alt="Palmiste">
+                    <img src="palmiste-rouge.jpg" alt="Palmiste Rouge">
                 </div>
                 <div class="card-body">
-                    <span class="card-cat">Gastronomie</span>
                     <h4 class="card-title">Palmiste Rouge</h4>
-                    <p style="font-size: 0.9rem; color: #666;">Frais & Sous vide</p>
+                    <p class="card-desc">Frais, entier ou sous-vide</p>
                 </div>
             </a>
 
@@ -163,9 +171,8 @@
                     <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=800" alt="Bananes">
                 </div>
                 <div class="card-body">
-                    <span class="card-cat">Verger</span>
-                    <h4 class="card-title">Bananes & Fruits</h4>
-                    <p style="font-size: 0.9rem; color: #666;">Banane Mignonne, Ananas...</p>
+                    <h4 class="card-title">Verger de l'Est</h4>
+                    <p class="card-desc">Bananes, Ananas & Fruits de saison</p>
                 </div>
             </a>
 
@@ -174,36 +181,38 @@
                     <img src="https://images.unsplash.com/photo-1592419044706-39796d40f98c?w=800" alt="Manioc">
                 </div>
                 <div class="card-body">
-                    <span class="card-cat">Tubercules</span>
-                    <h4 class="card-title">Manioc & Songe</h4>
-                    <p style="font-size: 0.9rem; color: #666;">Racines péi de saison</p>
+                    <h4 class="card-title">Racines & Tubercules</h4>
+                    <p class="card-desc">Manioc, Patate Douce, Songe</p>
                 </div>
             </a>
 
         </div>
     </section>
 
-    <section id="partenaires" class="spotlight">
-        <div class="spotlight-container">
-            <img src="meli.jpg" alt="Mélissa dans les fleurs" class="spot-img">
-            <div class="spot-txt">
-                <span class="spot-label">Partenaire Premium</span>
-                <h3 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin: 20px 0;">Nadège & Mélissa</h3>
-                <p style="line-height: 1.6; margin-bottom: 30px; opacity: 0.9;">
-                    Le Comptoir de l'Est est fier de distribuer en exclusivité les créations horticoles de Nadège & Mélissa. Leur exploitation à Bras-Panon est un modèle d'agriculture raisonnée.
+    <section id="producteurs" class="partners">
+        <div class="partners-container">
+            <img src="meli.jpg" alt="Mélissa dans le champ" class="partner-img">
+            <div class="partner-txt">
+                <span style="color:var(--or-terre); font-weight:700; text-transform:uppercase; letter-spacing:1px; font-size:0.85rem;">Productrices Partenaires</span>
+                <h3 style="font-family:'Playfair Display', serif; font-size:2.5rem; color:var(--vert-terroir); margin:15px 0;">Nadège & Mélissa</h3>
+                <p style="line-height:1.8; color:#666; margin-bottom:30px;">
+                    C'est avec elles que l'aventure a commencé. Productrices passionnées à Bras-Panon, elles fournissent l'intégralité de notre rayon Horticulture et Palmiste. En commandant sur Terroir de l'Est, vous soutenez directement leur exploitation familiale.
                 </p>
-                <a href="boutique-nadege.html" class="btn-comptoir">Voir leur Page Dédiée</a>
+                <a href="boutique-nadege.html" style="background-color:var(--vert-terroir); color:white; padding:12px 30px; text-decoration:none; font-weight:700; border-radius:30px;">Visiter leur Boutique</a>
             </div>
         </div>
     </section>
 
-    <footer class="comptoir-footer">
-        <p>&copy; 2024 LE COMPTOIR DE L'EST - Bras-Panon, La Réunion</p>
-        <div style="margin-top: 15px;">
+    <footer class="terroir-footer">
+        <h4>TERROIR DE L'EST</h4>
+        <p style="margin-bottom:30px;">Plateforme de distribution indépendante - Bras-Panon, La Réunion</p>
+        <div>
             <a href="mentions.html">Mentions Légales</a>
             <a href="cgv.html">CGV</a>
             <a href="livraisons.html">Livraisons</a>
+            <a href="#">Espace Producteurs</a>
         </div>
+        <p style="margin-top:40px; font-size:0.75rem; color:#666;">&copy; 2024 Terroir de l'Est. Tous droits réservés.</p>
     </footer>
 
 </body>
