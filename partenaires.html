@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devenir Partenaire - Terroir de l'Est</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --vert-terroir: #2c3e50; --or-terre: #c0a062; --blanc-papier: #f9f7f2; }
+        body { background-color: var(--blanc-papier); color: #333; }
+
+        /* HEADER (Identique à l'accueil) */
+        .terroir-header { background-color: white; padding: 25px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e5e5e5; }
+        .terroir-brand h1 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--vert-terroir); margin: 0; text-transform: uppercase; font-weight: 700; }
+        .terroir-brand span { font-size: 0.7rem; color: var(--or-terre); letter-spacing: 2px; text-transform: uppercase; display: block; font-weight: 600; }
+        .terroir-nav ul { display: flex; gap: 30px; list-style: none; }
+        .terroir-nav a { text-decoration: none; color: #555; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
+        .terroir-nav a:hover { color: var(--or-terre); }
+
+        /* HERO PARTENAIRE */
+        .partner-hero {
+            background-color: var(--vert-terroir); color: white; padding: 80px 20px; text-align: center;
+        }
+        .partner-hero h2 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 20px; }
+        .partner-hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto; color: #ddd; }
+
+        /* FORMULAIRE SECTION */
+        .form-section { padding: 60px 20px; max-width: 800px; margin: 0 auto; }
+        .form-container { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 5px solid var(--or-terre); }
+        
+        .form-group { margin-bottom: 25px; }
+        .form-group label { display: block; font-weight: 700; margin-bottom: 8px; color: var(--vert-terroir); }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Montserrat', sans-serif; font-size: 1rem;
+        }
+        .form-group textarea { height: 120px; resize: vertical; }
+        
+        .btn-submit {
+            background-color: var(--vert-terroir); color: white; border: none; padding: 15px 40px; 
+            font-size: 1rem; font-weight: 700; text-transform: uppercase; cursor: pointer; width: 100%;
+            transition: background 0.3s;
+        }
+        .btn-submit:hover { background-color: var(--or-terre); }
+
+        /* AVANTAGES */
+        .benefits { display: flex; gap: 20px; margin-top: 60px; }
+        .benefit-card { flex: 1; text-align: center; padding: 20px; background: white; border-radius: 8px; }
+        .benefit-icon { font-size: 2rem; color: var(--or-terre); margin-bottom: 15px; }
+        .benefit-title { font-weight: 700; margin-bottom: 10px; }
+
+        /* FOOTER */
+        .terroir-footer { background-color: var(--vert-terroir); color: #bbb; padding: 50px 20px; text-align: center; font-size: 0.9rem; }
+        .terroir-footer a { color: #bbb; text-decoration: none; margin: 0 10px; }
+    </style>
+</head>
+<body>
+
+    <header class="terroir-header">
+        <div class="terroir-brand">
+            <a href="index.html" style="text-decoration:none;">
+                <h1>Terroir de l'Est</h1>
+                <span>Distribution & Sélection</span>
+            </a>
+        </div>
+        <nav class="terroir-nav">
+            <ul>
+                <li><a href="index.html">Retour Accueil</a></li>
+                <li><a href="boutique-nadege.html">Exemple Boutique</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="partner-hero">
+        <h2>Rejoignez le réseau</h2>
+        <p>Vous êtes producteur dans l'Est ou le Nord ? Vendez vos produits directement aux consommateurs sans gérer la logistique.</p>
+    </section>
+
+    <div class="form-section" style="padding-bottom: 0;">
+        <div class="benefits">
+            <div class="benefit-card">
+                <i class="fas fa-hand-holding-usd benefit-icon"></i>
+                <div class="benefit-title">Prix Juste</div>
+                <p>Vous fixez vos prix, nous appliquons une commission transparente.</p>
+            </div>
+            <div class="benefit-card">
+                <i class="fas fa-truck benefit-icon"></i>
+                <div class="benefit-title">Logistique Gérée</div>
+                <p>Déposez vos produits au dépôt, nous livrons le client.</p>
+            </div>
+            <div class="benefit-card">
+                <i class="fas fa-bullhorn benefit-icon"></i>
+                <div class="benefit-title">Visibilité</div>
+                <p>Profitez de notre image de marque "Terroir de l'Est".</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="form-section">
+        <div class="form-container">
+            <h3 style="text-align: center; margin-bottom: 30px; color: var(--vert-terroir);">Demande d'inscription</h3>
+            
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-group">
+                    <label>Nom de l'Exploitation / Société</label>
+                    <input type="text" name="societe" placeholder="Ex: Le Verger de Saint-André" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Votre Nom & Prénom</label>
+                    <input type="text" name="nom" placeholder="Ex: Payet Jean" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Ville de production</label>
+                    <select name="ville" required>
+                        <option value="">-- Choisir une ville --</option>
+                        <option value="Bras-Panon">Bras-Panon</option>
+                        <option value="Saint-André">Saint-André</option>
+                        <option value="Saint-Benoît">Saint-Benoît</option>
+                        <option value="Sainte-Suzanne">Sainte-Suzanne</option>
+                        <option value="Sainte-Rose">Sainte-Rose</option>
+                        <option value="Plaine-des-Palmistes">La Plaine-des-Palmistes</option>
+                        <option value="Salazie">Salazie</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Type de produits</label>
+                    <select name="categorie" required>
+                        <option value="">-- Catégorie principale --</option>
+                        <option value="Fruits">Fruits</option>
+                        <option value="Légumes">Légumes / Racines</option>
+                        <option value="Fleurs">Fleurs / Plantes</option>
+                        <option value="Transformé">Produits transformés (Confitures...)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Téléphone</label>
+                    <input type="tel" name="telephone" placeholder="+262 692..." required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="votre-email@gmail.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Description de vos produits phares</label>
+                    <textarea name="message" placeholder="Ex: Je produis 50kg de bananes par semaine et du manioc..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Envoyer ma candidature</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="terroir-footer">
+        <p>&copy; 2024 Terroir de l'Est - Espace Professionnel</p>
+        <div style="margin-top: 15px;">
+            <a href="index.html">Retour au site</a>
+            <a href="mentions.html">Mentions Légales</a>
+        </div>
+    </footer>
+
+</body>
+</html>
