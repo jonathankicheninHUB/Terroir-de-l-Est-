@@ -3,106 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nadège & Mélissa - Les Sœurs Horticultrices</title>
+    <title>LE COMPTOIR DE L'EST - Distribution Agricole Réunion</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root { 
+            --vert-comptoir: #1e2b25; /* Vert très sombre, sérieux */
+            --or-vieux: #c5a065;      /* Doré patiné */
+            --blanc-cassé: #f4f4f0;
+        }
+        
+        body { background-color: var(--blanc-cassé); }
+
+        /* BANNIÈRE TOP */
+        .top-bar { 
+            background-color: var(--or-vieux); color: var(--vert-comptoir); 
+            text-align: center; padding: 10px; font-weight: 700; letter-spacing: 1px; font-size: 0.8rem;
+        }
+
+        /* HEADER DISTRIBUTEUR */
+        .comptoir-header {
+            background-color: white; padding: 25px 40px; 
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 3px solid var(--vert-comptoir);
+        }
+        .comptoir-brand h1 { 
+            font-family: 'Playfair Display', serif; font-size: 2rem; 
+            color: var(--vert-comptoir); margin: 0; letter-spacing: -1px; text-transform: uppercase;
+        }
+        .comptoir-brand span { 
+            font-size: 0.75rem; color: #666; letter-spacing: 2px; text-transform: uppercase; 
+        }
+
+        /* NAVIGATION */
+        .comptoir-nav ul { display: flex; gap: 30px; list-style: none; }
+        .comptoir-nav a { 
+            text-decoration: none; color: var(--vert-comptoir); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; 
+            transition: color 0.3s;
+        }
+        .comptoir-nav a:hover { color: var(--or-vieux); }
+
+        /* HERO SECTION */
+        .comptoir-hero {
+            height: 500px; 
+            background-image: url('fond-accueil.jpg'); /* On utilise votre image existante */
+            background-size: cover; background-position: center;
+            position: relative; display: flex; align-items: center; justify-content: center; text-align: center;
+        }
+        .hero-filter {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(30, 43, 37, 0.7), rgba(30, 43, 37, 0.5));
+        }
+        .hero-txt { position: relative; z-index: 2; color: white; max-width: 800px; padding: 20px; }
+        .hero-txt h2 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 20px; }
+        .hero-txt p { font-size: 1.2rem; font-weight: 300; margin-bottom: 30px; color: #ddd; }
+        .btn-comptoir {
+            background-color: var(--or-vieux); color: var(--vert-comptoir); padding: 15px 40px; 
+            text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+            transition: background 0.3s;
+        }
+        .btn-comptoir:hover { background-color: white; }
+
+        /* GRID RAYONS */
+        .rayons-section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h3 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--vert-comptoir); }
+        .sep-line { width: 60px; height: 3px; background-color: var(--or-vieux); margin: 15px auto; }
+
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        
+        .product-card {
+            background: white; border: 1px solid #e0e0e0; transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none; color: inherit; display: block;
+        }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); border-color: var(--or-vieux); }
+        .card-img { height: 250px; overflow: hidden; position: relative; }
+        .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .product-card:hover .card-img img { transform: scale(1.1); }
+        .card-body { padding: 25px; text-align: center; }
+        .card-cat { color: var(--or-vieux); font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
+        .card-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin: 10px 0; color: var(--vert-comptoir); }
+
+        /* PRODUCTEUR SPOTLIGHT */
+        .spotlight { background-color: var(--vert-comptoir); color: white; padding: 80px 20px; margin-top: 50px; }
+        .spotlight-container { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 50px; }
+        .spot-img { width: 40%; border: 5px solid rgba(255,255,255,0.1); }
+        .spot-txt { width: 60%; }
+        .spot-label { background-color: var(--or-vieux); color: var(--vert-comptoir); padding: 5px 15px; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; }
+        
+        @media (max-width: 768px) { .spotlight-container { flex-direction: column; } .spot-img, .spot-txt { width: 100%; } }
+
+        /* FOOTER SIMPLIFIÉ */
+        .comptoir-footer { background-color: #111; color: #888; padding: 40px; text-align: center; font-size: 0.9rem; }
+        .comptoir-footer a { color: #ccc; text-decoration: none; margin: 0 10px; }
+    </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo-container">
-            <div class="logo-icon"><i class="fas fa-leaf"></i></div>
-            <div class="logo-text">
-                <a href="index.html" style="text-decoration:none; color:inherit;">
-                    <h1>Nadège & Mélissa</h1>
-                    <span class="subtitle">LES SŒURS HORTICULTRICES</span>
-                </a>
-            </div>
-        </div>
+    <div class="top-bar">GROSSISTE & DÉTAILLANT • LIVRAISON SUR TOUTE L'ÎLE</div>
 
-        <nav>
+    <header class="comptoir-header">
+        <div class="comptoir-brand">
+            <h1>Le Comptoir de l'Est</h1>
+            <span>Coopérative Agricole</span>
+        </div>
+        <nav class="comptoir-nav">
             <ul>
-                <li><a href="fleurs.html">Fleurs</a></li>
-                <li><a href="palmiste.html">Palmiste</a></li>
-                <li><a href="atelier.html">L'Atelier</a></li>
-                <li><a href="histoire.html">Notre Histoire</a></li>
-                <li><a href="#">Contact</a></li>
-                <li class="cart-icon">
-                    <a href="#"><i class="fas fa-shopping-cart"></i></a>
-                    <span class="badge">6</span>
-                </li>
+                <li><a href="#rayons">Nos Rayons</a></li>
+                <li><a href="#partenaires">Nos Producteurs</a></li>
+                <li><a href="boutique-nadege.html">La Boutique Fleuriste</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <div class="location-tag">LES SŒURS HORTICULTRICES • BRAS-PANON</div>
-            <h2 class="main-title">L'Éclat des Tropiques,<br>La Douceur du Palmiste</h2>
-            <p class="sub-text">Cultivés à deux mains, avec passion, au cœur de l'Est de la<br>Réunion. Une histoire de famille, de la terre à votre maison.</p>
+    <section class="comptoir-hero">
+        <div class="hero-filter"></div>
+        <div class="hero-txt">
+            <h2>L'Excellence du Terroir</h2>
+            <p>Nous sélectionnons rigoureusement les meilleurs producteurs de l'Est pour les professionnels et les particuliers.</p>
+            <a href="#rayons" class="btn-comptoir">Accéder au Catalogue</a>
+        </div>
+    </section>
+
+    <section id="rayons" class="rayons-section">
+        <div class="section-header">
+            <h3>Nos Univers</h3>
+            <div class="sep-line"></div>
+            <p>Choisissez votre catégorie</p>
+        </div>
+
+        <div class="grid-container">
             
-            <div class="buttons-container">
-                <a href="fleurs.html" class="btn btn-red">
-                    <i class="fas fa-certificate"></i> Nos Fleurs
-                </a>
-                
-                <a href="palmiste.html" class="btn btn-white">
-                    <i class="fas fa-utensils"></i> Notre Palmiste
-                </a>
+            <a href="fleurs.html" class="product-card">
+                <div class="card-img">
+                    <img src="fleur-tropicale.jpg" alt="Fleurs">
+                </div>
+                <div class="card-body">
+                    <span class="card-cat">Horticulture</span>
+                    <h4 class="card-title">Fleurs Tropicales</h4>
+                    <p style="font-size: 0.9rem; color: #666;">Bouquets & Tiges</p>
+                </div>
+            </a>
+
+            <a href="palmiste.html" class="product-card">
+                <div class="card-img">
+                    <img src="palmiste-rouge.jpg" alt="Palmiste">
+                </div>
+                <div class="card-body">
+                    <span class="card-cat">Gastronomie</span>
+                    <h4 class="card-title">Palmiste Rouge</h4>
+                    <p style="font-size: 0.9rem; color: #666;">Frais & Sous vide</p>
+                </div>
+            </a>
+
+            <a href="#" class="product-card">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=800" alt="Bananes">
+                </div>
+                <div class="card-body">
+                    <span class="card-cat">Verger</span>
+                    <h4 class="card-title">Bananes & Fruits</h4>
+                    <p style="font-size: 0.9rem; color: #666;">Banane Mignonne, Ananas...</p>
+                </div>
+            </a>
+
+            <a href="#" class="product-card">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1592419044706-39796d40f98c?w=800" alt="Manioc">
+                </div>
+                <div class="card-body">
+                    <span class="card-cat">Tubercules</span>
+                    <h4 class="card-title">Manioc & Songe</h4>
+                    <p style="font-size: 0.9rem; color: #666;">Racines péi de saison</p>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <section id="partenaires" class="spotlight">
+        <div class="spotlight-container">
+            <img src="meli.jpg" alt="Mélissa dans les fleurs" class="spot-img">
+            <div class="spot-txt">
+                <span class="spot-label">Partenaire Premium</span>
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin: 20px 0;">Nadège & Mélissa</h3>
+                <p style="line-height: 1.6; margin-bottom: 30px; opacity: 0.9;">
+                    Le Comptoir de l'Est est fier de distribuer en exclusivité les créations horticoles de Nadège & Mélissa. Leur exploitation à Bras-Panon est un modèle d'agriculture raisonnée.
+                </p>
+                <a href="boutique-nadege.html" class="btn-comptoir">Voir leur Page Dédiée</a>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="footer-container">
-            
-            <div class="footer-col">
-                <h3 class="footer-logo">Nadège & Mélissa</h3>
-                <p class="footer-desc">
-                    L'excellence de l'horticulture réunionnaise. Des fleurs tropicales aux palmistes d'exception, nous cultivons la passion du terroir.
-                </p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-
-            <div class="footer-col">
-                <h4>Navigation</h4>
-                <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="fleurs.html">Nos Fleurs</a></li>
-                    <li><a href="palmiste.html">Le Palmiste</a></li>
-                    <li><a href="atelier.html">L'Atelier</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4>Informations</h4>
-                <ul>
-                    <li><a href="mentions.html">Mentions Légales</a></li>
-                    <li><a href="cgv.html">CGV</a></li>
-                    <li><a href="confidentialite.html">Politique de Confidentialité</a></li>
-                    <li><a href="livraisons.html">Livraisons & Retours</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4>Nous Contacter</h4>
-                <ul class="contact-info">
-                    <li><i class="fas fa-map-marker-alt"></i> Chemin du Palmiste, Bras-Panon, 97412, La Réunion</li>
-                    <li><i class="fas fa-phone"></i> +262 692 00 00 00</li>
-                    <li><i class="fas fa-envelope"></i> contact@nadege-melissa.re</li>
-                </ul>
-            </div>
-
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2024 Nadège & Mélissa. Tous droits réservés. Site réalisé avec passion.</p>
+    <footer class="comptoir-footer">
+        <p>&copy; 2024 LE COMPTOIR DE L'EST - Bras-Panon, La Réunion</p>
+        <div style="margin-top: 15px;">
+            <a href="mentions.html">Mentions Légales</a>
+            <a href="cgv.html">CGV</a>
+            <a href="livraisons.html">Livraisons</a>
         </div>
     </footer>
 
