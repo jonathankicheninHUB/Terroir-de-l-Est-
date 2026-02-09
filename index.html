@@ -3,100 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nadège & Mélissa - Éclat Tropical</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <title>Nadège & Mélissa - Créations Florales</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <header>
-        <div class="nav-left">
-            <a href="index.html" class="active">Accueil</a>
-            <a href="fleurs.html">Produits</a>
-        </div>
-        
-        <div class="nav-center">
-            <div class="logo-text">
-                <h1>Nadège & Mélissa</h1>
-                <span class="subtitle">Artisans Fleuristes Réunion</span>
+        <div class="header-container">
+            <div class="logo-area">
+                <div class="logo-circle"><i class="fas fa-leaf"></i></div>
+                <div class="logo-text">
+                    <h1>Nadège & Mélissa</h1>
+                    <span>Sœurs Horticultrices</span>
+                </div>
             </div>
-        </div>
+            
+            <nav>
+                <a href="#" class="active">Accueil</a>
+                <a href="fleurs.html">Produits</a>
+                <a href="#">Qui sommes-nous ?</a>
+                <a href="atelier.html">L'Atelier</a>
+            </nav>
 
-        <div class="nav-right">
-            <a href="#">Qui sommes-nous ?</a>
-            <a href="#" class="cart-btn"><i class="fas fa-shopping-cart"></i> Panier</a>
+            <div class="header-icons">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            </div>
         </div>
     </header>
 
-    <section class="hero-new">
-        <div class="hero-content-new">
+    <section class="hero-premium">
+        <div class="hero-overlay-content">
             <h2>L'Éclat des Fleurs Tropicales<br>et la Douceur du Palmiste</h2>
-            <p>Laissez-vous envoûter par nos créations uniques, cultivées avec amour.</p>
-            <div class="hero-buttons">
-                <a href="fleurs.html" class="btn-green">Explorer la Boutique</a>
-                <a href="contact.html" class="btn-transparent">Contacter les Sœurs</a>
+            <p>Cultivées avec passion sur les terres de l'Est.</p>
+            <div class="btn-group">
+                <a href="fleurs.html" class="btn-fill">Explorer la Boutique</a>
+                <a href="contact.html" class="btn-outline">Contacter les Sœurs</a>
             </div>
         </div>
     </section>
 
-    <section class="products-new">
-        <h3 class="section-title-new">Bouquets d'Exception</h3>
+    <section class="products-premium">
+        <h3 class="section-title">Bouquets d'Exception</h3>
         
-        <div class="cards-container">
+        <div class="cards-wrapper">
             
-            <div class="card-new">
-                <div class="card-img">
+            <div class="card-item">
+                <div class="card-photo">
                     <img src="fleur-tropicale.jpg" alt="Bouquet Tropical">
                 </div>
-                <div class="card-info">
+                <div class="card-details">
                     <h4>L'Essentiel Tropical</h4>
                     <span class="price">35€ / bqt</span>
                 </div>
             </div>
 
-            <div class="card-new">
-                <div class="card-img">
-                    <img src="bouquet-rose.jpg" alt="Tendresse Pastel">
+            <div class="card-item">
+                <div class="card-photo">
+                    <img src="bouquet-roses.jpg" alt="Roses Tendresse">
                 </div>
-                <div class="card-info">
+                <div class="card-details">
                     <h4>Tendresse Cendrée</h4>
-                    <span class="price">28€ / tige</span>
+                    <span class="price">28€ / bqt</span>
                 </div>
             </div>
 
-            <div class="card-new">
-                <div class="card-img">
-                    <img src="rose-porcelaine.jpg" alt="Orchidée ou Porcelaine">
+            <div class="card-item">
+                <div class="card-photo">
+                    <img src="orchidee.jpg" alt="Orchidée Blanche">
                 </div>
-                <div class="card-info">
+                <div class="card-details">
                     <h4>Cœur de Porcelaine</h4>
                     <span class="price">20€ / tige</span>
                 </div>
             </div>
 
         </div>
+
+        <h3 class="section-title-small">Cœur de Palmiste</h3>
     </section>
 
-    <section class="bottom-banner">
-        <div class="banner-content">
-            <h3>Sortilège Passion Palmiste</h3>
-            <p>Une texture incomparable, un goût inoubliable. Découvrez notre caviar végétal.</p>
-            <a href="atelier.html" class="btn-small">Apprendre son Histoire</a>
+    <section class="decorative-banner">
+        <div class="banner-box">
+            <i class="fas fa-leaf decoration-left"></i>
+            <div class="banner-text">
+                <h3>Sortilège Passion Palmiste</h3>
+                <p>Une texture incomparable pour vos gratins et salades.</p>
+                <a href="atelier.html" class="btn-banner">Apprendre son Histoire</a>
+            </div>
+            <i class="fas fa-leaf decoration-right"></i>
         </div>
     </section>
 
     <footer>
-        <div class="footer-links">
-            <a href="#">Nous Contacter</a>
-            <a href="#">Magasins</a>
-            <a href="#">Instagram</a>
-            <a href="#">Mentions Légales</a>
-        </div>
-        <div class="newsletter">
-            <span>Recevez nos offres</span>
-            <input type="email" placeholder="Votre email">
-            <button>OK</button>
+        <div class="footer-content">
+            <div class="col">
+                <h5>Nadège & Mélissa</h5>
+                <p>Savoir-faire réunionnais.</p>
+            </div>
+            <div class="col">
+                <a href="#">Mentions Légales</a>
+                <a href="#">CGV</a>
+            </div>
+            <div class="col">
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+            </div>
         </div>
     </footer>
 
