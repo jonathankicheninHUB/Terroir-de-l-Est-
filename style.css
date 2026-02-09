@@ -1,157 +1,84 @@
 /* =========================================
-   STYLE GLOBAL - TERROIR DE L'EST (MARKETPLACE PRO)
+   8. FOOTER PROFESSIONAL (MULTI-COLONNES)
    ========================================= */
 
-/* 1. PALETTE DE COULEURS & VARIABLES */
-:root {
-    --vert-imperial: #1a3c26;  /* Confiance, Nature, Luxe */
-    --or-terre: #d4af37;       /* Premium, Terroir */
-    --blanc-casse: #f9f7f2;    /* Fond doux */
-    --blanc-pur: #ffffff;
-    --gris-texte: #2c3e50;
-    --gris-clair: #e5e5e5;
-    --ombre-douce: 0 4px 20px rgba(0,0,0,0.08);
+footer {
+    background-color: #1a1a1a; /* Fond très sombre pour le contraste */
+    color: #b0b0b0;
+    padding-top: 70px;
+    font-size: 0.9rem;
+    border-top: 5px solid var(--vert-imperial); /* Rappel de la marque */
 }
 
-/* 2. RESET & BASES */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: var(--blanc-casse);
-    color: var(--gris-texte);
-    line-height: 1.6;
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 50px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 4 colonnes responsives */
+    gap: 40px;
 }
 
-h1, h2, h3, h4 {
-    font-family: 'Playfair Display', serif;
-    color: var(--vert-imperial);
-    font-weight: 700;
-}
-
-a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
-ul { list-style: none; }
-
-/* 3. TOP BAR (Double Zone : Info & B2B) */
-.top-bar {
-    background-color: var(--vert-imperial);
+/* Colonnes */
+.footer-col h4 {
     color: white;
-    padding: 8px 40px;
-    font-size: 0.75rem;
-    font-weight: 500;
-    display: flex;
-    justify-content: space-between; /* Sépare gauche et droite */
-    align-items: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
 }
 
-.top-bar-left i { color: var(--or-terre); margin-right: 5px; }
-.top-bar-right a { margin-left: 20px; opacity: 0.8; }
-.top-bar-right a:hover { opacity: 1; color: var(--or-terre); }
+.footer-col ul li { margin-bottom: 12px; }
+.footer-col ul li a { 
+    color: #b0b0b0; transition: all 0.3s; display: inline-block;
+}
+.footer-col ul li a:hover { 
+    color: var(--or-terre); transform: translateX(5px); /* Petit mouvement au survol */
+}
 
-/* 4. MAIN HEADER (Navigation Principale) */
-.main-header {
-    background: var(--blanc-pur);
-    padding: 15px 40px;
+/* Contact Info */
+.contact-info li { display: flex; align-items: flex-start; gap: 10px; }
+.contact-info i { color: var(--or-terre); margin-top: 4px; }
+
+/* Newsletter Footer */
+.footer-newsletter input {
+    width: 100%;
+    padding: 12px;
+    background: #333;
+    border: 1px solid #444;
+    color: white;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.footer-newsletter button {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--or-terre);
+    color: var(--vert-imperial);
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+.footer-newsletter button:hover { background-color: white; }
+
+/* Barre du bas (Copyright & Paiement) */
+.footer-bottom {
+    background-color: #111;
+    padding: 20px;
+    border-top: 1px solid #333;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    position: sticky; top: 0; z-index: 1000;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-/* Logo */
-.brand-logo h1 { font-size: 1.6rem; margin: 0; line-height: 1; }
-.brand-logo span { font-size: 0.65rem; color: var(--or-terre); letter-spacing: 2px; text-transform: uppercase; font-weight: 700; display: block; margin-top: 4px; }
+.payment-icons { font-size: 1.5rem; color: #fff; display: flex; gap: 15px; }
+.payment-icons i { opacity: 0.7; }
 
-/* Menu Central */
-.nav-menu { display: flex; gap: 30px; align-items: center; }
-.nav-link { 
-    font-weight: 600; font-size: 0.85rem; text-transform: uppercase; color: var(--gris-texte); position: relative; 
-}
-.nav-link:hover { color: var(--vert-imperial); }
-/* Petit point doré au survol */
-.nav-link::after {
-    content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0;
-    background-color: var(--or-terre); transition: width 0.3s;
-}
-.nav-link:hover::after { width: 100%; }
-
-/* Zone Actions (Recherche + Panier + Bouton Vendeur) */
-.header-actions { display: flex; align-items: center; gap: 20px; }
-
-/* Barre de Recherche Header */
-.header-search {
-    position: relative;
-    border: 1px solid var(--gris-clair);
-    border-radius: 30px;
-    padding: 8px 15px;
-    display: flex; align-items: center;
-    width: 250px;
-    transition: border-color 0.3s;
-}
-.header-search:focus-within { border-color: var(--or-terre); }
-.header-search input { border: none; outline: none; font-size: 0.85rem; width: 100%; color: var(--gris-texte); }
-.header-search i { color: #aaa; font-size: 0.9rem; }
-
-/* Icones (Compte & Panier) */
-.icon-btn { font-size: 1.2rem; color: var(--vert-imperial); cursor: pointer; position: relative; }
-.cart-badge {
-    position: absolute; top: -8px; right: -8px;
-    background-color: var(--or-terre); color: white;
-    font-size: 0.6rem; width: 16px; height: 16px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center; font-weight: bold;
-}
-
-/* Bouton "Devenir Vendeur" (Discret) */
-.btn-seller {
-    border: 1px solid var(--vert-imperial);
-    padding: 8px 18px;
-    border-radius: 30px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: var(--vert-imperial);
-    transition: all 0.3s;
-}
-.btn-seller:hover { background-color: var(--vert-imperial); color: white; }
-
-
-/* 5. HERO & SECTIONS (Style conservé) */
-.hero-image-container { width: 100%; background: #000; overflow: hidden; }
-.hero-image-container img { width: 100%; display: block; max-height: 80vh; object-fit: cover; opacity: 0.9; }
-
-.action-bar { background-color: var(--vert-imperial); color: white; padding: 50px 20px; text-align: center; }
-.action-title { font-size: 2.2rem; color: var(--or-terre); margin-bottom: 15px; }
-.action-subtitle { font-size: 1.1rem; margin-bottom: 35px; font-weight: 300; max-width: 700px; margin: 0 auto 35px auto; color: #ddd; }
-
-.hero-buttons { display: flex; gap: 20px; justify-content: center; }
-.btn-gold {
-    background: linear-gradient(135deg, var(--or-terre), #cfa038);
-    color: white; padding: 15px 40px; border-radius: 50px; font-weight: 700; text-transform: uppercase; border: none; cursor: pointer;
-    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
-}
-.btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(212, 175, 55, 0.5); }
-
-/* 6. GRILLE PRODUITS */
-.products-section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
-.section-header h2 { text-align: center; margin-bottom: 40px; font-size: 2rem; }
-
-.products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
-.product-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: var(--ombre-douce); border: 1px solid #f0f0f0; transition: transform 0.3s; }
-.product-card:hover { transform: translateY(-5px); }
-.card-image-wrapper { height: 250px; overflow: hidden; }
-.card-image-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-.product-card:hover img { transform: scale(1.05); }
-.card-details { padding: 20px; text-align: center; }
-.card-price { display: block; margin-top: 10px; color: var(--vert-imperial); font-weight: 700; font-size: 1.1rem; }
-
-/* 7. FOOTER */
-footer { background-color: #1a1a1a; color: #888; padding: 60px 20px; text-align: center; font-size: 0.9rem; }
-footer a { color: #ccc; margin: 0 10px; }
-
-/* MOBILE */
-@media (max-width: 900px) {
-    .nav-menu, .header-search { display: none; } /* Simplification Mobile */
-    .main-header { padding: 15px 20px; }
-    .top-bar { flex-direction: column; gap: 5px; text-align: center; }
+/* Mobile */
+@media (max-width: 768px) {
+    .footer-bottom { flex-direction: column; text-align: center; }
 }
