@@ -3,87 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nadège & Mélissa - Les Sœurs Horticultrices</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <title>Nadège & Mélissa - Éclat Tropical</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <header>
-        <div class="logo-container">
-            <div class="logo-icon"><i class="fas fa-leaf"></i></div>
+        <div class="nav-left">
+            <a href="index.html" class="active">Accueil</a>
+            <a href="fleurs.html">Produits</a>
+        </div>
+        
+        <div class="nav-center">
             <div class="logo-text">
-                <a href="index.html" style="text-decoration:none; color:inherit;">
-                    <h1>Nadège & Mélissa</h1>
-                    <span class="subtitle">LES SŒURS HORTICULTRICES</span>
-                </a>
+                <h1>Nadège & Mélissa</h1>
+                <span class="subtitle">Artisans Fleuristes Réunion</span>
             </div>
         </div>
-        <nav>
-            <ul>
-                <li><a href="fleurs.html">Fleurs</a></li>
-                <li><a href="palmiste.html">Palmiste</a></li>
-                <li><a href="atelier.html">L'Atelier</a></li>
-                <li><a href="#">Notre Histoire</a></li>
-                <li><a href="#">Contact</a></li>
-                <li class="cart-icon"><a href="#"><i class="fas fa-shopping-cart"></i></a><span class="badge">6</span></li>
-            </ul>
-        </nav>
+
+        <div class="nav-right">
+            <a href="#">Qui sommes-nous ?</a>
+            <a href="#" class="cart-btn"><i class="fas fa-shopping-cart"></i> Panier</a>
+        </div>
     </header>
 
-    <section class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <div class="location-tag">LES SŒURS HORTICULTRICES • BRAS-PANON</div>
-            <h2 class="main-title">L'Éclat des Tropiques,<br>La Douceur du Palmiste</h2>
-            <p class="sub-text">Cultivés à deux mains, avec passion, au cœur de l'Est de la<br>Réunion. Une histoire de famille, de la terre à votre maison.</p>
-            <div class="buttons-container">
-                <a href="fleurs.html" class="btn btn-red"><i class="fas fa-certificate"></i> Nos Fleurs</a>
-                <a href="palmiste.html" class="btn btn-white"><i class="fas fa-utensils"></i> Notre Palmiste</a>
+    <section class="hero-new">
+        <div class="hero-content-new">
+            <h2>L'Éclat des Fleurs Tropicales<br>et la Douceur du Palmiste</h2>
+            <p>Laissez-vous envoûter par nos créations uniques, cultivées avec amour.</p>
+            <div class="hero-buttons">
+                <a href="fleurs.html" class="btn-green">Explorer la Boutique</a>
+                <a href="contact.html" class="btn-transparent">Contacter les Sœurs</a>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-col">
-                <h3 class="footer-logo">Nadège & Mélissa</h3>
-                <p class="footer-desc">L'excellence de l'horticulture réunionnaise. Des fleurs tropicales aux palmistes d'exception, nous cultivons la passion du terroir.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+    <section class="products-new">
+        <h3 class="section-title-new">Bouquets d'Exception</h3>
+        
+        <div class="cards-container">
+            
+            <div class="card-new">
+                <div class="card-img">
+                    <img src="fleur-tropicale.jpg" alt="Bouquet Tropical">
+                </div>
+                <div class="card-info">
+                    <h4>L'Essentiel Tropical</h4>
+                    <span class="price">35€ / bqt</span>
                 </div>
             </div>
-            <div class="footer-col">
-                <h4>Navigation</h4>
-                <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="fleurs.html">Nos Fleurs</a></li>
-                    <li><a href="palmiste.html">Le Palmiste</a></li>
-                    <li><a href="atelier.html">L'Atelier</a></li>
-                </ul>
+
+            <div class="card-new">
+                <div class="card-img">
+                    <img src="bouquet-rose.jpg" alt="Tendresse Pastel">
+                </div>
+                <div class="card-info">
+                    <h4>Tendresse Cendrée</h4>
+                    <span class="price">28€ / tige</span>
+                </div>
             </div>
-            <div class="footer-col">
-                <h4>Informations</h4>
-                <ul>
-                    <li><a href="#">Mentions Légales</a></li>
-                    <li><a href="#">CGV</a></li>
-                    <li><a href="#">Politique de Confidentialité</a></li>
-                    <li><a href="#">Livraisons & Retours</a></li>
-                </ul>
+
+            <div class="card-new">
+                <div class="card-img">
+                    <img src="rose-porcelaine.jpg" alt="Orchidée ou Porcelaine">
+                </div>
+                <div class="card-info">
+                    <h4>Cœur de Porcelaine</h4>
+                    <span class="price">20€ / tige</span>
+                </div>
             </div>
-            <div class="footer-col">
-                <h4>Nous Contacter</h4>
-                <ul class="contact-info">
-                    <li><i class="fas fa-map-marker-alt"></i> Chemin du Palmiste, Bras-Panon, 97412, La Réunion</li>
-                    <li><i class="fas fa-phone"></i> +262 692 00 00 00</li>
-                    <li><i class="fas fa-envelope"></i> contact@nadege-melissa.re</li>
-                </ul>
-            </div>
+
         </div>
-        <div class="footer-bottom"><p>&copy; 2024 Nadège & Mélissa. Tous droits réservés. Site réalisé avec passion.</p></div>
+    </section>
+
+    <section class="bottom-banner">
+        <div class="banner-content">
+            <h3>Sortilège Passion Palmiste</h3>
+            <p>Une texture incomparable, un goût inoubliable. Découvrez notre caviar végétal.</p>
+            <a href="atelier.html" class="btn-small">Apprendre son Histoire</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">Nous Contacter</a>
+            <a href="#">Magasins</a>
+            <a href="#">Instagram</a>
+            <a href="#">Mentions Légales</a>
+        </div>
+        <div class="newsletter">
+            <span>Recevez nos offres</span>
+            <input type="email" placeholder="Votre email">
+            <button>OK</button>
+        </div>
     </footer>
 
 </body>
