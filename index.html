@@ -4,222 +4,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TERROIR DE L'EST - Marketplace Agricole</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
     <div class="top-bar">
-        <div class="top-bar-left">
-            <i class="fas fa-truck"></i> Livraison offerte dès 50€ dans l'Est et le Nord
-        </div>
+        <div class="top-bar-left"><i class="fas fa-truck"></i> Livraison offerte dès 50€ dans l'Est</div>
         <div class="top-bar-right">
-            <a href="#">Espace Pro (Restaurateurs)</a>
-            <a href="#">Aide & Contact</a>
+            <a href="#">Espace Pro</a>
             <a href="#"><i class="fas fa-user"></i> Connexion</a>
         </div>
     </div>
 
     <header class="main-header">
         <div class="brand-logo">
-            <a href="index.html">
-                <h1>Terroir de l'Est</h1>
-                <span>Sélection & Distribution</span>
-            </a>
+            <a href="index.html"><h1>Terroir de l'Est</h1><span>Sélection & Distribution</span></a>
         </div>
-
         <nav>
             <ul class="nav-menu">
                 <li><a href="#rayons" class="nav-link">Nos Rayons</a></li>
-                <li><a href="boutique-nadege.html" class="nav-link">Nos Producteurs</a></li>
-                <li><a href="#charte" class="nav-link">Notre Démarche</a></li>
+                <li><a href="#producteurs" class="nav-link">Nos Producteurs</a></li>
             </ul>
         </nav>
-
         <div class="header-actions">
             <div class="header-search">
-                <input type="text" id="headerSearchInput" placeholder="Rechercher (ex: Ananas)...">
+                <input type="text" id="searchInput" placeholder="Rechercher (ex: Ananas)...">
                 <i class="fas fa-search"></i>
             </div>
-            <div class="icon-btn">
-                <i class="fas fa-shopping-basket"></i>
-                <span class="cart-badge">2</span>
-            </div>
-            <a href="partenaires.html" class="btn-seller">Devenir Vendeur</a>
+            <div class="icon-btn"><i class="fas fa-shopping-basket"></i><span class="cart-badge">0</span></div>
         </div>
     </header>
 
     <section class="hero-image-container">
-        <img src="accueil-terroir.jpg" alt="Agriculteurs Réunion">
+        <img src="accueil-terroir.jpg" alt="Agriculteurs Réunion" onerror="this.style.display='none'">
     </section>
 
     <section class="action-bar">
         <h2 class="action-title">L'Intensité Volcanique</h2>
-        <p class="action-subtitle">
-            Du champ de lave à votre table, sans intermédiaire.<br>
-            Découvrez la sélection premium des agriculteurs de l'Est.
-        </p>
+        <p class="action-subtitle">Du champ de lave à votre table, sans intermédiaire.</p>
         <div class="hero-buttons">
             <a href="#rayons" class="btn-gold">Voir les Produits</a>
         </div>
     </section>
 
-    <section class="social-proof-bar">
-        <p style="text-transform:uppercase; letter-spacing:2px; font-size:0.8rem; color:#999; margin-bottom:20px;">En direct de nos producteurs</p>
-        <div class="producers-list">
-            <div class="producer-item">
-                <img src="meli.jpg" alt="Mélissa" class="producer-face">
-                <div class="producer-info">
-                    <h4>Mélissa & Nadège</h4>
-                    <p style="font-size:0.8rem; color:#666;">Fleurs & Palmistes</p>
-                </div>
-            </div>
-            <div class="producer-item">
-                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="André" class="producer-face">
-                <div class="producer-info">
-                    <h4>André Payet</h4>
-                    <p style="font-size:0.8rem; color:#666;">Vanille & Épices</p>
-                </div>
-            </div>
+    <section id="producteurs" class="social-proof-bar">
+        <p class="section-tag">En direct de nos producteurs</p>
+        <div class="producers-list" id="producers-container">
+            <div class="loader">Chargement des producteurs...</div>
         </div>
     </section>
 
     <section id="rayons" class="products-section">
-        <div class="section-header">
-            <h2>Les Pépites de la Semaine</h2>
-        </div>
-
+        <div class="section-header"><h2>Le Marché de Saison</h2></div>
+        
         <div class="filter-buttons">
             <button class="filter-btn active" data-filter="all">Tout</button>
             <button class="filter-btn" data-filter="Fruits">Fruits</button>
             <button class="filter-btn" data-filter="Légumes">Légumes</button>
             <button class="filter-btn" data-filter="Fleurs">Fleurs</button>
-            <button class="filter-btn" data-filter="Palmiste">Palmiste</button>
         </div>
 
-        <div class="products-grid" id="productsContainer">
-            <a href="fleurs.html" class="product-card" data-category="Fleurs" data-name="Fleurs Tropicales">
-                <span class="card-badge">PREMIUM</span>
-                <div class="card-image-wrapper"><img src="fleur-tropicale.jpg" alt="Fleurs"></div>
-                <div class="card-details">
-                    <h3>Fleurs Tropicales</h3>
-                    <span class="card-price">Dès 15,00€</span>
-                </div>
-            </a>
-            <a href="palmiste.html" class="product-card" data-category="Palmiste" data-name="Chou Palmiste">
-                <span class="card-badge">RARE</span>
-                <div class="card-image-wrapper"><img src="palmiste-rouge.jpg" alt="Palmiste"></div>
-                <div class="card-details">
-                    <h3>Chou Palmiste</h3>
-                    <span class="card-price">15,00€ /pièce</span>
-                </div>
-            </a>
-            <div class="product-card" data-category="Fruits" data-name="Ananas Victoria">
-                <span class="card-badge">AOP</span>
-                <div class="card-image-wrapper"><img src="https://images.unsplash.com/photo-1589533610925-1cffc309ebaa?w=600" alt="Ananas"></div>
-                <div class="card-details">
-                    <h3>Ananas Victoria</h3>
-                    <span class="card-price">2,50€ /pièce</span>
-                </div>
-            </div>
-            <div class="product-card" data-category="Légumes" data-name="Manioc Beurre">
-                <span class="card-badge">BIO</span>
-                <div class="card-image-wrapper"><img src="https://images.unsplash.com/photo-1592419044706-39796d40f98c?w=600" alt="Manioc"></div>
-                <div class="card-details">
-                    <h3>Manioc Beurre</h3>
-                    <span class="card-price">3,00€ /kg</span>
-                </div>
-            </div>
+        <div class="products-grid" id="products-container">
+            <div class="loader">Connexion au stock en temps réel...</div>
         </div>
     </section>
 
     <footer>
         <div class="footer-container">
             <div class="footer-col">
-                <h4>Terroir de l'Est</h4>
-                <p style="margin-bottom:20px;">La 1ère marketplace agricole de l'Est.</p>
-                <ul class="contact-info">
-                    <li><i class="fas fa-map-marker-alt"></i> <span>Saint-Benoît, La Réunion</span></li>
-                    <li><i class="fas fa-envelope"></i> <span>contact@terroirest.re</span></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Nos Rayons</h4>
-                <ul>
-                    <li><a href="#">Fruits de Saison</a></li>
-                    <li><a href="#">Légumes & Racines</a></li>
-                    <li><a href="#">Fleurs Tropicales</a></li>
-                    <li><a href="#">Colis Cadeaux</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Informations</h4>
-                <ul>
-                    <li><a href="#">Mentions Légales</a></li>
-                    <li><a href="#">CGV</a></li>
-                    <li><a href="#">Politique Confidentialité</a></li>
-                    <li><a href="#">Livraisons</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
                 <h4>Newsletter</h4>
-                <form class="footer-newsletter">
-                    <input type="email" placeholder="Votre email...">
-                    <button type="submit">OK</button>
-                </form>
+                <p>Recevez les alertes arrivages.</p>
+                <div class="footer-newsletter">
+                    <input type="email" id="emailInput" placeholder="Votre email...">
+                    <button id="btnNewsletter">OK</button>
+                </div>
+                <p id="msg-newsletter"></p>
+            </div>
+             <div class="footer-col">
+                <h4>Contact</h4>
+                <p>contact@terroirdelest.re</p>
             </div>
         </div>
-
         <div class="footer-bottom">
-            <p>&copy; 2024 Terroir de l'Est. Tous droits réservés.</p>
-            <div class="payment-icons">
-                <i class="fab fa-cc-visa"></i>
-                <i class="fab fa-cc-mastercard"></i>
-                <i class="fas fa-lock"></i> <span>Paiement Sécurisé</span>
-            </div>
+            <p>&copy; 2024 Terroir de l'Est.</p>
         </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const searchInput = document.getElementById('headerSearchInput');
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            const allProducts = document.querySelectorAll('.product-card');
-
-            // Filtres Catégories
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    const filterValue = btn.getAttribute('data-filter');
-                    
-                    allProducts.forEach(product => {
-                        const productCategory = product.getAttribute('data-category');
-                        if (filterValue === 'all' || productCategory === filterValue) {
-                            product.classList.remove('hidden');
-                        } else {
-                            product.classList.add('hidden');
-                        }
-                    });
-                });
-            });
-
-            // Recherche Barre
-            if(searchInput){
-                searchInput.addEventListener('keyup', (e) => {
-                    const searchString = e.target.value.toLowerCase();
-                    allProducts.forEach(product => {
-                        const productName = product.getAttribute('data-name').toLowerCase();
-                        if (productName.includes(searchString)) {
-                            product.classList.remove('hidden');
-                        } else {
-                            product.classList.add('hidden');
-                        }
-                    });
-                });
-            }
-        });
-    </script>
+    <script src="app.js"></script>
 </body>
 </html>
