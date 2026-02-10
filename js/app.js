@@ -22,6 +22,17 @@ document.addEventListener('DOMContentLoaded', () => {
             if (error) throw error;
             container.innerHTML = ''; 
 
+            // Observateur pour l'animation au scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationDelay = `${index * 0.1}s`; // Délai en cascade
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
             produits.forEach(p => {
                 const carte = document.createElement('div');
                 carte.className = 'product-card';
@@ -38,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 `;
                 container.appendChild(carte);
+                observer.observe(carte); // On observe chaque carte
             });
         } catch (err) {
             console.error("Erreur:", err);
@@ -111,6 +123,24 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+
+    // 5. MENU BURGER MOBILE
+    const burgerBtn = document.getElementById('burgerMenu');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (burgerBtn && navMenu) {
+        burgerBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = burgerBtn.querySelector('i');
+            if (navMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    }
 
     loadProducts();
     loadProducers();

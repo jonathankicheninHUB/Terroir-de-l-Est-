@@ -101,7 +101,8 @@
         <div class="form-container">
             <h3 style="text-align: center; margin-bottom: 30px; color: var(--vert-terroir);">Demande d'inscription</h3>
             
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <!-- TODO: Remplacer YOUR_FORM_ID par votre ID Formspree réel -->
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" onsubmit="if(this.action.includes('YOUR_FORM_ID')){alert('Veuillez configurer l\'ID du formulaire'); return false;}">
                 <div class="form-group">
                     <label>Nom de l'Exploitation / Société</label>
                     <input type="text" name="societe" placeholder="Ex: Le Verger de Saint-André" required>

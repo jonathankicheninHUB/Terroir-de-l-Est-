@@ -16,13 +16,16 @@
     <div class="top-bar">
         <div class="top-bar-left"><i class="fas fa-truck"></i> Livraison offerte dès 50€ dans l'Est</div>
         <div class="top-bar-right">
-            <a href="admin.html">Espace Pro</a> <a href="#"><i class="fas fa-user"></i> Connexion</a>
+            <a href="admin.html">Accès Producteur</a> <a href="#"><i class="fas fa-user"></i> Mon Compte</a>
         </div>
     </div>
 
     <header class="main-header">
         <div class="brand-logo">
             <a href="index.html"><h1>Terroir de l'Est</h1><span>Sélection & Distribution</span></a>
+        </div>
+        <div class="burger-menu" id="burgerMenu">
+            <i class="fas fa-bars"></i>
         </div>
         <nav>
             <ul class="nav-menu">
@@ -32,34 +35,53 @@
         </nav>
         <div class="header-actions">
             <div class="header-search">
-                <input type="text" id="searchInput" placeholder="Rechercher (ex: Ananas)...">
+                <input type="text" id="searchInput" placeholder="Rechercher un produit...">
                 <i class="fas fa-search"></i>
             </div>
             <div class="icon-btn"><i class="fas fa-shopping-basket"></i><span class="cart-badge">0</span></div>
         </div>
     </header>
 
-    <section class="hero-image-container">
-        <img src="assets/img/accueil-terroir.jpg" alt="Agriculteurs Réunion" onerror="this.style.display='none'">
-    </section>
-
-    <section class="action-bar">
-        <h2 class="action-title">L'Intensité Volcanique</h2>
-        <p class="action-subtitle">Du champ de lave à votre table, sans intermédiaire.</p>
-        <div class="hero-buttons">
-            <a href="#rayons" class="btn-gold">Voir les Produits</a>
+    <!-- HERO SECTION "MYTHO" -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-tag">#1 Marketplace Agricole 974</span>
+            <h1 class="hero-title">L'Excellence du Volcan<br>Directement chez Vous.</h1>
+            <p class="hero-subtitle">La plateforme technologique qui connecte l'élite des producteurs de l'Est aux gourmets exigeants. Sans intermédiaire. Sans compromis.</p>
+            <a href="#rayons" class="btn-gold">Explorer le Marché</a>
         </div>
     </section>
 
+    <!-- STATS BAR -->
+    <div class="stats-bar">
+        <div class="stat-item">
+            <h3>12h</h3>
+            <p>De la récolte à l'assiette</p>
+        </div>
+        <div class="stat-item">
+            <h3>100%</h3>
+            <p>Traçabilité Garantie</p>
+        </div>
+        <div class="stat-item">
+            <h3>50+</h3>
+            <p>Producteurs Partenaires</p>
+        </div>
+    </div>
+
     <section id="producteurs" class="social-proof-bar">
-        <p class="section-tag">En direct de nos producteurs</p>
+        <h2 class="section-title-center">L'Élite Agricole</h2>
+        <p style="color: #666; margin-bottom: 30px;">Ils font la fierté de l'Est. Découvrez leurs visages.</p>
         <div class="producers-list" id="producers-container">
             <p>Chargement des producteurs...</p>
         </div>
     </section>
 
     <section id="rayons" class="products-section">
-        <div class="section-header"><h2>Le Marché de Saison</h2></div>
+        <div class="section-header">
+            <h2 class="section-title-center">Arrivages en Temps Réel</h2>
+            <p>Stock mis à jour toutes les 15 minutes.</p>
+        </div>
         
         <div class="filter-buttons">
             <button class="filter-btn active" data-filter="all">Tout</button>
@@ -70,6 +92,19 @@
 
         <div class="products-grid" id="products-container">
             <p>Chargement du stock en direct...</p>
+        </div>
+    </section>
+
+    <!-- SECTION CTA PRODUCTEUR -->
+    <section class="cta-pro-section">
+        <div class="cta-image">
+            <img src="assets/img/accueil-terroir.jpg" alt="Producteur heureux">
+        </div>
+        <div class="cta-content">
+            <h2>Vous produisez l'exception ?</h2>
+            <p>Rejoignez le réseau Terroir de l'Est. Bénéficiez de notre logistique, de notre marketing digital et d'un paiement garanti sous 48h. Laissez-nous gérer la vente, concentrez-vous sur la terre.</p>
+            <a href="partenaires.html" class="btn-gold">Devenir Partenaire</a>
+            <a href="admin.html" class="btn-outline" style="margin-left: 10px;">Connexion Pro</a>
         </div>
     </section>
 

@@ -33,12 +33,12 @@
                 <label>Mot de passe</label>
                 <input type="password" id="adminPass" placeholder="******">
             </div>
-            <button class="btn-admin" onclick="login()">Se Connecter</button>
+            <button class="btn-admin" id="loginBtn">Se Connecter</button>
             <p id="login-msg" style="color:red; margin-top:10px;"></p>
         </div>
 
-        <div id="dashboard-zone" class="hidden">
-            <span class="logout-btn" onclick="logout()">Déconnexion</span>
+        <div id="dashboard-zone" class="hidden" style="display: none;">
+            <span class="logout-btn" id="logoutBtn">Déconnexion</span>
             <h2>📦 Ajouter un Produit</h2>
             
             <div class="form-group">
@@ -79,5 +79,53 @@
     </div>
 
     <script src="assets/js/admin.js"></script>
+    <script>
+        // --- SÉCURITÉ SUPABASE ---
+        // Remplacez ces valeurs par celles de votre projet Supabase
+        const SUPABASE_URL = 'https://afzjgisyaoyygoijizpq.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFmempnaXN5YW95eWdvaWppenBxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA2NDYxODIsImV4cCI6MjA4NjIyMjE4Mn0.l2VchnS-LzkD34M7dnM9MAEzvoVgewEuTuvS7Kxlo04';
+        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        const loginBtn = document.getElementById('loginBtn');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const loginZone = document.getElementById('login-zone');
+        const dashboardZone = document.getElementById('dashboard-zone');
+        const loginMsg = document.getElementById('login-msg');
+
+        // Écouteur d'état de session (se déclenche au chargement et à la connexion/déconnexion)
+        supabase.auth.onAuthStateChange((event, session) => {
+            if (session) {
+                // Utilisateur connecté : on affiche le dashboard
+                loginZone.style.display = 'none';
+                dashboardZone.style.display = 'block';
+            } else {
+                // Pas de session : on affiche le login
+                loginZone.style.display = 'block';
+                dashboardZone.style.display = 'none';
+            }
+        });
+
+        // Gestion de la connexion
+        loginBtn.addEventListener('click', async () => {
+            const email = document.getElementById('adminEmail').value;
+            const password = document.getElementById('adminPass').value;
+            
+            loginMsg.textContent = "Connexion en cours...";
+            
+            const { data, error } = await supabase.auth.signInWithPassword({
+                email: email,
+                password: password,
+            });
+
+            if (error) {
+                loginMsg.textContent = "Erreur : " + error.message;
+            }
+        });
+
+        // Gestion de la déconnexion
+        logoutBtn.addEventListener('click', async () => {
+            await supabase.auth.signOut();
+        });
+    </script>
 </body>
 </html>
